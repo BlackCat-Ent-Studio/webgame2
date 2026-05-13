@@ -1,0 +1,20 @@
+[
+  {
+    "id": "weibo",
+    "label": "官方微博",
+    "icon": "/images/community/social-weibo.png",
+    "link": "https://weibo.com/perfectworldgames"
+  },
+  {
+    "id": "community",
+    "label": "完美游戏社区",
+    "icon": "/images/community/social-douliu.png",
+    "link": "https://douliu.wanmei.com/"
+  },
+  {
+    "id": "wechat",
+    "label": "官方微信",
+    "icon": "/images/community/social-wechat.png",
+    "link": "#wechat-qr"
+  }
+]

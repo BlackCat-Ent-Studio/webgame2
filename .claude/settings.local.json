@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ipconfig)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/)",
+      "Bash(netstat -ano)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" --connect-timeout 5 http://192.168.1.59:3000/)",
+      "Bash(netsh advfirewall *)",
+      "Bash(where cloudflared *)",
+      "Bash(cloudflared --version)",
+      "Bash(cloudflared tunnel *)",
+      "Bash(curl *)",
+      "Bash(taskkill /F /PID 12460)",
+      "Bash(cmd //c \"taskkill /F /PID 12460\")",
+      "Bash(npm --prefix E:/webgame/Webgame-main/wanmei-next-app run build)",
+      "Bash(npx *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(git checkout *)",
+      "Bash(git rm *)",
+      "Bash(git commit *)"
+    ]
+  }
+}

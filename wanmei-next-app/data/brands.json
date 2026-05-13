@@ -1,0 +1,34 @@
+[
+  {
+    "id": "brand1",
+    "title": "游戏中心",
+    "subtitle": "Game Center",
+    "image": "/images/brand/brand-tile-01.png",
+    "imageMobile": "/images/mobile/business-item1.png",
+    "link": "#jump"
+  },
+  {
+    "id": "brand2",
+    "title": "完美游戏社区",
+    "subtitle": "Wanmei Community",
+    "image": "/images/brand/brand-tile-02.png",
+    "imageMobile": "/images/mobile/business-item2.png",
+    "link": "https://douliu.wanmei.com/"
+  },
+  {
+    "id": "brand3",
+    "title": "群星计划",
+    "subtitle": "Stars Plan",
+    "image": "/images/brand/brand-tile-03.png",
+    "imageMobile": "/images/mobile/business-item3.png",
+    "link": "https://www.wanmei.com/hd/2103/net/stars/"
+  },
+  {
+    "id": "brand4",
+    "title": "数字文创",
+    "subtitle": "Digital Cultural Creation",
+    "image": "/images/brand/brand-tile-04.png",
+    "imageMobile": "/images/mobile/business-item4.png",
+    "link": "https://games.wanmei.com/culture/index.html"
+  }
+]

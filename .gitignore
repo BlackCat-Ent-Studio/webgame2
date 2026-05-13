@@ -1,0 +1,99 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# build output
+/.next/
+/out/
+dist/
+bin/
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# package manager lock files (uncomment the one you use)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# semantic-release
+.nyc_output
+
+# env files (can opt-in for committing if needed)
+.env*
+!.env.example
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# python
+__pycache__
+
+# misc
+repomix-output.xml
+.serena/cache
+screenshots/*
+logs.txt
+
+# Plans (local development only, templates committed)
+plans/**/*
+!plans/templates/*
+
+# CK meta commands
+prompt.md
+ck.md
+
+# Agent memory (project scope)
+.claude/agent-memory/
+
+# Hook diagnostics logs
+.claude/hooks/.logs/
+
+# Gemini CLI settings (symlink to .claude/.mcp.json)
+.gemini/settings.json
+.claude/settings.bak.json
+
+# External repos for study/reference
+external/
+
+# Wanmei mirror (Stage 1 — generated artifact, regen via scripts/mirror-wanmei-homepage.mjs)
+mirror/
+
+# ClaudeKit template archive (44MB ZIP, not source)
+claudekit/
+
+# Git worktrees (local development only)
+worktrees/
+
+# ClaudeKit source repo
+claude kit/
+
+# Webgame deployment docs (allow-list overrides 2026-05-09)
+!plans/reports/
+!plans/reports/**
+!plans/260509-1452-wanmeivn-apex-deploy/
+!plans/260509-1452-wanmeivn-apex-deploy/**
+

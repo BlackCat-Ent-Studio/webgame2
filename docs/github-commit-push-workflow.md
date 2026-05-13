@@ -1,0 +1,208 @@
+---
+type: workflow-guide
+date: 2026-05-12
+slug: github-commit-push-workflow
+domain: BlackCat-Ent-Studio/webgame2
+related:
+  - ../.secrets/README.md
+  - session-handoff-2026-05-10-responsive-staging.md
+---
+
+# GitHub Commit & Push Workflow — VPS .40
+
+> The standard `git push` over HTTPS **HANGS** on this VPS due to a Windows TLS Schannel issue with github.com's HTTP/2. **DO NOT** try regular `git push` — it will hang for minutes and fail.
+>
+> The working path is the **GitHub Git Data API** via `gh api`. This guide shows the exact pattern.
+
+---
+
+## Prerequisites (one-time per session)
+
+```powershell
+# 1. Load PAT from .secrets/ folder
+$env:GH_TOKEN = (Get-Content C:\web\web1\webgame\Webgame-main\.secrets\github-pat-260512.txt).Trim()
+
+# 2. Verify auth
+gh auth status
+# Should show: ✓ Logged in to github.com account BlackCat-Ent-Studio (GH_TOKEN)
+
+# 3. Confirm the right repo is reachable
+gh repo view BlackCat-Ent-Studio/webgame2 --json nameWithOwner,defaultBranchRef
+```
+
+PAT details (in `.secrets/github-pat-260512.txt`):
+- **Account:** BlackCat-Ent-Studio
+- **Scope:** Fine-grained, repo-specific to `webgame2`
+- **Permissions:** Contents Read+Write, Pull Requests Read+Write
+- **Expires:** **2026-06-11** (~30 days from 2026-05-12)
+
+---
+
+## Quick workflow — single file change
+
+For changing one file (e.g. updating one CSS file or markdown doc):
+
+```powershell
+# Set variables
+$REPO   = "BlackCat-Ent-Studio/webgame2"
+$BRANCH = "main"
+$PATH_IN_REPO = "path/to/file.md"               # forward slashes, no leading /
+$LOCAL_FILE   = "C:\web\web1\webgame\Webgame-main\path\to\file.md"
+$MESSAGE = "docs: brief commit message"
+
+# 1. Get current file SHA (needed to update)
+$existing = gh api "repos/$REPO/contents/$PATH_IN_REPO" --jq '.sha' 2>$null
+$shaArg = if ($existing) { "-f sha=$existing" } else { "" }
+
+# 2. Base64 encode the new content
+$contentBase64 = [Convert]::ToBase64String(
+  [System.IO.File]::ReadAllBytes($LOCAL_FILE)
+)
+
+# 3. Upload via Contents API (one shot)
+$body = @{
+  message = $MESSAGE
+  content = $contentBase64
+  branch  = $BRANCH
+}
+if ($existing) { $body.sha = $existing }
+
+$bodyJson = $body | ConvertTo-Json
+$bodyJson | gh api "repos/$REPO/contents/$PATH_IN_REPO" --method PUT --input -
+```
+
+---
+
+## Multi-file commit — Git Data API (blob → tree → commit → ref)
+
+For committing multiple files atomically:
+
+```powershell
+$REPO   = "BlackCat-Ent-Studio/webgame2"
+$BRANCH = "main"
+$MESSAGE = "feat: implement phase 1 foundation"
+
+# 1. Get current branch ref + commit SHA
+$branchRef = gh api "repos/$REPO/git/refs/heads/$BRANCH" | ConvertFrom-Json
+$parentSha = $branchRef.object.sha
+$parentCommit = gh api "repos/$REPO/git/commits/$parentSha" | ConvertFrom-Json
+$baseTreeSha = $parentCommit.tree.sha
+
+# 2. Create blobs for each file (one API call per file)
+$files = @(
+  @{ path = "wanmei-next-app/package.json";       local = "C:\...\package.json" },
+  @{ path = "wanmei-next-app/tailwind.config.ts"; local = "C:\...\tailwind.config.ts" }
+  # ...add as many as needed
+)
+
+$treeItems = @()
+foreach ($f in $files) {
+  $contentBase64 = [Convert]::ToBase64String([System.IO.File]::ReadAllBytes($f.local))
+  $blobBody = @{ content = $contentBase64; encoding = "base64" } | ConvertTo-Json
+  $blob = $blobBody | gh api "repos/$REPO/git/blobs" --method POST --input - | ConvertFrom-Json
+  $treeItems += @{
+    path = $f.path
+    mode = "100644"
+    type = "blob"
+    sha  = $blob.sha
+  }
+}
+
+# 3. Create a new tree based on the parent's tree
+$treeBody = @{
+  base_tree = $baseTreeSha
+  tree      = $treeItems
+} | ConvertTo-Json -Depth 5
+$newTree = $treeBody | gh api "repos/$REPO/git/trees" --method POST --input - | ConvertFrom-Json
+
+# 4. Create commit
+$commitBody = @{
+  message = $MESSAGE
+  tree    = $newTree.sha
+  parents = @($parentSha)
+} | ConvertTo-Json
+$newCommit = $commitBody | gh api "repos/$REPO/git/commits" --method POST --input - | ConvertFrom-Json
+
+# 5. Update branch ref (this is the "push")
+$refBody = @{ sha = $newCommit.sha } | ConvertTo-Json
+$refBody | gh api "repos/$REPO/git/refs/heads/$BRANCH" --method PATCH --input -
+
+Write-Host "Pushed commit: $($newCommit.sha.Substring(0,7))"
+Write-Host "View: https://github.com/$REPO/commit/$($newCommit.sha)"
+```
+
+---
+
+## Conventional commit message format
+
+Match the existing project convention (visible in `git log` of prior commits):
+
+| Prefix | Use for |
+|--------|---------|
+| `feat:` | New feature |
+| `fix:` | Bug fix |
+| `docs:` | Documentation only |
+| `refactor:` | Code restructuring, no behavior change |
+| `chore:` | Build/tooling changes |
+| `style:` | Formatting, no logic change |
+| `test:` | Adding tests |
+
+Examples:
+- `feat: scaffold wanmei-next-app with tailwind + tsconfig`
+- `fix: hero swiper double-init on resize`
+- `docs: add github commit/push workflow guide`
+- `refactor: extract heroSlides data to JSON`
+
+**Don't include AI references** in commit messages (e.g., no "generated by Claude").
+
+---
+
+## Verify push landed
+
+After pushing:
+
+```powershell
+$REPO = "BlackCat-Ent-Studio/webgame2"
+gh api "repos/$REPO/commits?per_page=3" --jq '.[] | "\(.sha[0..6]) \(.commit.author.date) \(.commit.message | split("\n")[0])"'
+```
+
+Or visit `https://github.com/BlackCat-Ent-Studio/webgame2/commits/main`.
+
+---
+
+## Common failures
+
+| Symptom | Cause | Fix |
+|---------|-------|-----|
+| `git push` hangs for >60s | Windows TLS Schannel + GitHub HTTP/2 issue | Use `gh api` instead (this guide) |
+| `Bad credentials` (401) | PAT expired, revoked, or wrong | Check expiry; regenerate at github.com/settings/personal-access-tokens |
+| `Not Found` (404) on `repos/...` | PAT scope doesn't include this repo | Edit token to add `webgame2` |
+| `Resource not accessible by personal access token` (403) | Token lacks Contents Write permission | Edit token permissions |
+| `409 Conflict` on PUT contents | Stale SHA — file changed on remote | Re-fetch the SHA and retry |
+
+---
+
+## When the PAT expires (~2026-06-11)
+
+1. Generate new fine-grained PAT at https://github.com/settings/personal-access-tokens/new
+   - **Resource owner:** BlackCat-Ent-Studio
+   - **Repository access:** Only `webgame2`
+   - **Permissions:** Contents R/W, Pull Requests R/W, Metadata R (auto)
+   - **Expiration:** 30 days (or longer if you prefer)
+2. Copy the token (one-time view)
+3. Save to `.secrets/github-pat-{YYMMDD}.txt`
+4. Update this doc + `.secrets/README.md` with new file name + new expiry
+5. Revoke the old PAT at github.com to be safe
+
+---
+
+## Skill summary for future sessions
+
+When asked to push to GitHub:
+
+1. `$env:GH_TOKEN = (Get-Content C:\web\web1\webgame\Webgame-main\.secrets\github-pat-260512.txt).Trim()`
+2. Use `gh api` (not `git push`)
+3. For 1 file → Contents API PUT
+4. For many files → Git Data API (blob → tree → commit → ref)
+5. Conventional commit messages, no AI references
+6. Verify with `gh api repos/.../commits?per_page=1`

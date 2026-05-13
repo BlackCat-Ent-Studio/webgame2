@@ -1,0 +1,22 @@
+[
+  {
+    "id": "yihuan",
+    "title": "异环",
+    "viceTitle": "超自然都市开放世界",
+    "imageDesktop": "https://gamesvmg.wmupd.com/rms/common/yh260423-1920x1035.jpg",
+    "imageMobile": "https://gamesvmg.wmupd.com/rms/common/yh260423-750x1270.jpg",
+    "thumb": "https://gamesvmg.wmupd.com/rms/common/yh260204-icon-200x200.png",
+    "link": "https://yh.wanmei.com/",
+    "mlink": "一切正常，就是异常！"
+  },
+  {
+    "id": "huanta",
+    "title": "幻塔",
+    "viceTitle": "轻科幻开放世界手游",
+    "imageDesktop": "https://gamesvmg.wmupd.com/rms/common/ht260421%E9%A6%96%E5%B1%8F%E6%8E%A8%E8%8D%90-PC-1920x1035-500k.jpg",
+    "imageMobile": "https://gamesvmg.wmupd.com/rms/common/ht260421%E9%A6%96%E5%B1%8F%E6%8E%A8%E8%8D%90-%E7%A7%BB%E5%8A%A8-750x1270-500k.jpg",
+    "thumb": "https://games.wanmei.com/images/index2103/gamecenter413/huanta_logo_pc_200x200.png",
+    "link": "https://ht.wanmei.com",
+    "mlink": "带上幻想去冒险"
+  }
+]

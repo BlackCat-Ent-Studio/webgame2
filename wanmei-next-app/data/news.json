@@ -1,0 +1,56 @@
+{
+  "desktopTicker": [
+    {
+      "title": "《异环》全平台公测现已开启！",
+      "viceTitle": "鉴定师，欢迎来到海特洛！",
+      "bigpic": "https://gamesvmg.wmupd.com/rms/common/yh260423-770x441.jpg",
+      "viewpic": "https://gamesvmg.wmupd.com/rms/common/yh26020444-icon-200x200.png",
+      "link": "https://yh.wanmei.com/news/gamenews/20251222/259966.html"
+    },
+    {
+      "title": "「禅音破晓」版本12月17日启动！全新门派天音阁上线！",
+      "viceTitle": "UE5加持电影画质，42元月卡不卖数值",
+      "bigpic": "https://gamesvmg.wmupd.com/rms/common/zhuxianshijie251210%28770x441%29.jpg",
+      "viewpic": "https://gamesvmg.wmupd.com/rms/common/zhuxian0701-200-200.png",
+      "link": "https://zxsj.wanmei.com/main.html"
+    },
+    {
+      "title": "《幻塔》6.0版本现已开启",
+      "viceTitle": "全新拟态莓登场。",
+      "bigpic": "https://gamesvmg.wmupd.com/rms/common/ht260421%E8%BD%AE%E6%92%AD%E5%B9%BF%E5%91%8A-PC-770x441-300k.jpg",
+      "viewpic": "https://gamesvmg.wmupd.com/rms/common/MO-ICON.png",
+      "link": "https://ht.wanmei.com/news/gamenews/20251211/259793.html"
+    },
+    {
+      "title": "《女神异闻录：夜幕魅影》",
+      "viceTitle": "P3R联动版本「机械天使的枪鸣」4月23日开启！",
+      "bigpic": "https://gamesvmg.wmupd.com/rms/common/P5X260423%E8%BD%AE%E6%92%AD%E5%B9%BF%E5%91%8A-PC-770x441-300k.jpg",
+      "viewpic": "https://gamesvmg.wmupd.com/rms/common/P5X260115%E6%B8%B8%E6%88%8Ficon-%E7%A7%BB%E5%8A%A8-200-200.png",
+      "link": "https://p5x.wanmei.com/"
+    }
+  ],
+  "mobileFeatured": [
+    {
+      "bigpic": "https://gamesvmg.wmupd.com/rms/common/yh260423-640x390.jpg",
+      "link": "https://yh.wanmei.com/m/news/gamenews/20251222/259967.html"
+    },
+    {
+      "bigpic": "https://gamesvmg.wmupd.com/rms/common/ht260421%E8%BD%AE%E6%92%AD%E5%B9%BF%E5%91%8A-%E7%A7%BB%E5%8A%A8-640x390-300k.jpg",
+      "link": "https://ht.wanmei.com"
+    }
+  ],
+  "mobileCards": [
+    {
+      "title": "《异环》全平台公测现已开启！",
+      "viceTitle": "鉴定师，欢迎来到海特洛！",
+      "icon": "https://gamesvmg.wmupd.com/rms/common/yh260204-icon-200x200.png",
+      "link": "https://yh.wanmei.com/m/news/gamenews/20251222/259967.html"
+    },
+    {
+      "title": "《幻塔》5.7版本现已开启",
+      "viceTitle": "全新拟态阿格雷娅登场。",
+      "icon": "https://gamesvmg.wmupd.com/rms/common/ht0212--ICON.png",
+      "link": "https://ht.wanmei.com"
+    }
+  ]
+}

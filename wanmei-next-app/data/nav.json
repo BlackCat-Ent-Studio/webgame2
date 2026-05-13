@@ -1,0 +1,22 @@
+{
+  "primary": [
+    { "label": "首页", "href": "/" },
+    { "label": "游戏", "href": "#games" },
+    { "label": "新闻", "href": "#news" },
+    { "label": "自助服务", "href": "#helps" },
+    { "label": "联系我们", "href": "https://games.wanmei.com/contact/index.html" },
+    { "label": "集团", "href": "http://www.wanmei.com/" }
+  ],
+  "helps": [
+    { "label": "商城", "href": "http://shop.wanmei.com/" },
+    { "label": "账号", "href": "https://id.wanmei.com" },
+    { "label": "充值", "href": "https://pay.wanmei.com/new/" },
+    { "label": "客服", "href": "http://cs.wanmei.com" },
+    { "label": "道具", "href": "http://store.wanmei.com/" }
+  ],
+  "languages": [
+    { "label": "中", "code": "zh", "href": "https://games.wanmei.com/", "active": true },
+    { "label": "EN", "code": "en", "href": "https://www.perfectworld.com/" },
+    { "label": "한글", "code": "kr", "href": "https://www.perfectworld.com/kr/index.html" }
+  ]
+}

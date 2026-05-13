@@ -1,0 +1,53 @@
+{
+  "newGame": {
+    "mobile": [
+      {
+        "id": "20251",
+        "name": "异环",
+        "icon": "https://gamesvmg.wmupd.com/rms/common/yh260204-icon-200x200.png",
+        "faceUrl": "https://gamesvmg.wmupd.com/rms/common/yh260423-770x441.jpg",
+        "desc": "超自然都市开放世界",
+        "link": "https://yh.wanmei.com/",
+        "intro": "《异环》全平台公测现已开启！鉴定师，欢迎来到海特洛！"
+      },
+      {
+        "id": "39",
+        "name": "幻塔",
+        "icon": "https://games.wanmei.com/images/index2103/gamecenter413/huanta_logo_pc_200x200.png",
+        "faceUrl": "https://games.wanmei.com/images/index2103/gamecenter413/ht390_289.jpg",
+        "desc": "轻科幻开放世界手游",
+        "link": "https://ht.wanmei.com/",
+        "intro": "《幻塔》6.0版本现已开启。带上幻想去冒险。"
+      }
+    ],
+    "pc": [],
+    "host": []
+  },
+  "hotGame": {
+    "mobile": [
+      {
+        "id": "20251",
+        "name": "异环",
+        "icon": "https://gamesvmg.wmupd.com/rms/common/yh260204-icon-200x200.png",
+        "faceUrl": "https://gamesvmg.wmupd.com/rms/common/yh260423-640x390.jpg",
+        "faceCropBottomPct": 20,
+        "desc": "超自然都市开放世界",
+        "link": "https://yh.wanmei.com/",
+        "intro": "《异环》全平台公测现已开启！"
+      },
+      {
+        "id": "39",
+        "name": "幻塔",
+        "icon": "https://games.wanmei.com/images/index2103/gamecenter413/huanta_logo_pc_200x200.png",
+        "faceUrl": "https://games.wanmei.com/images/index2103/gamecenter413/ht390_289.jpg",
+        "desc": "轻科幻开放世界手游",
+        "link": "https://ht.wanmei.com/",
+        "intro": "《幻塔》6.0版本现已开启。"
+      }
+    ],
+    "pc": [],
+    "danji": [],
+    "host": [],
+    "yeyou": []
+  }
+}

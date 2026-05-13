@@ -1,0 +1,1071 @@
+<!DOCTYPE html><html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Wanmei Vietnam — game portal">
+<meta name="keywords" content="Wanmei, Vietnam, games">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://wanmeivn.com/">
+<link rel="icon" type="image/png" href="./games.wanmei.com/images/common1711/nav-logo.png">
+<meta property="og:title" content="Wanmei Vietnam">
+<meta property="og:description" content="Wanmei Vietnam — game portal">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wanmeivn.com/">
+<meta property="og:image" content="https://wanmeivn.com/games.wanmei.com/images/common1711/nav-logo.png">
+<meta property="og:locale" content="vi_VN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wanmei Vietnam">
+<meta name="twitter:description" content="Wanmei Vietnam — game portal">
+<title>Wanmei Vietnam</title>
+<link rel="stylesheet" type="text/css" href="./static.games.wanmei.com/public/style/swiper-4.5.0.min.css">
+<link rel="stylesheet" type="text/css" href="./static.games.wanmei.com/public/style/animate.min.css">
+<link href="./games.wanmei.com/style/yy2103.css" rel="stylesheet" type="text/css">
+<link href="./games.wanmei.com/style/index2104_2209.css" rel="stylesheet" type="text/css">
+<link href="./games.wanmei.com/style/index230418.css" rel="stylesheet" type="text/css">
+<link href="./responsive-overlay.css?v=20260510-0045" rel="stylesheet" type="text/css">
+<style>
+/* ===========================================================
+   Hero swiper thumbnail repair (mobile + tablet).
+
+   Upstream hardcodes: .productCarousel-thumbs { position:absolute;
+   left:445px; top:800px } — designed for 1920×905 desktop hero.
+   On mobile the hero is smaller so thumbs appear offscreen.
+
+   Below 1024px viewport, make thumbs flow normally below the hero.
+   =========================================================== */
+@media (max-width: 1023px) {
+  .bg .productCarousel,
+  .bg .productCarousel .productCarousel-top,
+  .bg .productCarousel .productCarousel_poster {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    position: relative !important;
+    left: 0 !important;
+    margin: 0 !important;
+  }
+  .bg .productCarousel .productCarousel-thumbs {
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 8px auto 0 !important;
+    padding: 0 12px !important;
+    box-sizing: border-box !important;
+  }
+  .bg .productCarousel .productCarousel-thumbs .swiper-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    justify-content: center !important;
+    transform: none !important;
+  }
+  .bg .productCarousel .productCarousel-thumbs .swiper-wrapper .swiper-slide {
+    width: clamp(56px, 16vw, 100px) !important;
+    height: auto !important;
+    flex: 0 0 auto !important;
+  }
+  .bg .productCarousel .productCarousel-thumbs .swiper-wrapper .swiper-slide a {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    background-size: contain !important;
+  }
+  .bg .productCarousel .productCarousel-thumbs .swiper-button-prev,
+  .bg .productCarousel .productCarousel-thumbs .swiper-button-next {
+    display: none !important;
+  }
+  .bg .productCarousel_mask {
+    display: none !important;
+  }
+}
+
+/* ===========================================================
+   Surgical fix for the brand-business section (品牌业务).
+
+   Real DOM is:
+     .brand_box > .container > .brand_list > ul > li.brand1..brand4
+   Upstream offending rules:
+     .brand_list ul     { width: 958px; margin: 0 auto; }
+     .brand_list ul li  { width: 240px; height: 374px; float: left; }
+
+   We override with higher specificity (.bg .brand_box .brand_list)
+   to make the ul a fluid grid and the li tiles fluid.
+   =========================================================== */
+.bg .brand_box,
+.bg .brand_box .container,
+.bg .brand_box .brand_list {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+.bg .brand_box .brand_list ul {
+  width: 100% !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)) !important;
+  gap: 8px !important;
+  list-style: none !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+.bg .brand_box .brand_list ul li,
+.bg .brand_box .brand_list ul li.brand1,
+.bg .brand_box .brand_list ul li.brand2,
+.bg .brand_box .brand_list ul li.brand3,
+.bg .brand_box .brand_list ul li.brand4,
+.bg .brand_box .brand_list ul li.brand5 {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 240 / 374 !important;
+  float: none !important;
+  margin: 0 !important;
+  background-size: 100% 100% !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+.bg .brand_box .brand_list ul li:after {
+  background-size: 100% 100% !important;
+  background-position: center !important;
+}
+.bg .brand_box .brand_list ul li a {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  inset: 0 !important;
+}
+</style>
+<!-- isMobile script removed (Stage 1 mirror) -->
+<!-- isMobile redirect block removed (Stage 1 mirror) -->
+</head>
+<body>
+    <h1 style="position: absolute; top: 0; left: -1000px; z-index: -10;"><img src="./games.wanmei.com/images/common1711/nav-logo.png" alt="完美世界游戏" title="完美世界游戏"></h1>
+    <!-- 预约 -->
+    <div class="pop_fixed" id="pop_yy">
+        <div class="pop_cont_bg">
+            <div class="pop_cont">
+                <span class="closeBtn"></span>
+                <!--form-->
+                <div class="sub_form_box">
+                    <img src="./games.wanmei.com/images/index2103/popup-yy-game-title.png" class="yy_gametit">
+                    <ul class="sub_ul">
+                        <li style="margin-top: 30px;">
+                            <div class="sub_right"><input type="text" placeholder="请输入手机号码" class="phone"></div>
+                        </li>
+                    </ul>
+                    <a class="btn_sub btn_sub_yuyue">关注</a>
+                    <div style="text-align:center;padding-top:60px; font-size: 18px; color:#b3b3b3" class="game_yy_tip">*以上信息，仅用于接收游戏最新动态相关信息</div>
+                </div>
+                <!-- 预约成功 -->
+                <div class="sub_succ_box">
+                    <img class="color_bar" src="./games.wanmei.com/images/index2103/popup-yy-color-bar.png">
+                    <img class="succ_yy_tit" src="./games.wanmei.com/images/index2103/popup-yy-success-title.png">
+                    <p>我们将在游戏公测前向您登记的手机号发送短信</p>
+                    <!-- 立即下载 -->
+                    <a href="https://douliu.wanmei.com/" class="suc_ok_btn"></a>
+                    <img src="./games.wanmei.com/images/index2103/popup-yy-douliu-info.png" class="douliu_info">
+                </div>
+                <!-- 预约中 -->
+                <div class="sub_succing_box" style="display: none;">
+                    预约中
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg">
+        <div class="fbh_float">
+            <a href="https://games.wanmei.com/2021/index.html" target="_blank"></a>
+            <span></span>
+        </div>
+        <!-- 头部导航列表 -->
+        <!-- 头部导航列表 -->
+<div class="top_box">
+    <!-- 游戏列表 -->
+    <div class="games_list game_slide">
+        <div class="bottom_all_wrap">
+            <div class="col_game col_2">
+                <h3 class="game_type">客户端游戏</h3>
+                <div class="game_list_tow">
+                    <ul class="insertClient"></ul>
+                </div>
+            </div>
+            <div class="col_game col_3">
+                <h3 class="game_type">手机游戏</h3>
+                <div class="game_list_tow">
+                    <ul class="insertMobiel"></ul>
+                </div>
+            </div>
+            <div class="col_game col_5">
+                <h3 class="game_type">游戏平台</h3>
+                <div class="game_list_one">
+                    <ul class="insertOther"></ul>
+                </div>
+                <h3 class="game_type">网页游戏</h3>
+                <div class="game_list_one">
+                    <ul class="insertWebgame"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="top_box_wrap">
+        <!-- 自助服务列表 -->
+        <div class="helps_slide" style="left: 820px;">
+            <a href="http://shop.wanmei.com/" target="_blank">商城</a>
+            <a href="https://id.wanmei.com" target="_blank">账号</a>
+            <a href="https://pay.wanmei.com/new/" target="_blank">充值</a>
+            <a href="http://cs.wanmei.com" target="_blank">客服</a>
+            <a href="http://store.wanmei.com/" target="_blank">道具</a>
+        </div>
+        <!-- 联系列表 -->
+        <div class="contact_slide">
+            <a href="https://games.wanmei.com/contact/index.html" target="_blank">联系我们</a>
+            
+        </div>
+        <a href="https://games.wanmei.com/">
+            <img class="top_logo" src="./games.wanmei.com/images/index2205/main/nav-logo-main.png">
+        </a>
+        <ul class="top_nav_ul">
+            <li>
+                <a href="https://games.wanmei.com/" class="home">首页</a>
+            </li>
+            <li class="games_btn" flag="false">
+                <a href="javascript:;">游戏</a>
+            </li>
+            <li class="games_news_btn">
+                <a href="#news">新闻</a>
+            </li>
+            <li class="helps_btn" flag="false">
+                <a href="javascript:;">自助服务</a>
+            </li>
+            <li class="contact_btn" flag="false">
+                <a href="javascript:;">联系我们</a>
+            </li>
+            <li>
+                <a href="http://www.wanmei.com/" target="_blank">集团</a>
+            </li>
+            <li class="check-lang">
+                <a href="https://games.wanmei.com/" class="on" data-lang="zh">中</a>/
+                <a href="https://www.perfectworld.com/" class="" data-lang="en">EN</a>/
+                <a href="https://www.perfectworld.com/kr/index.html" class="" data-lang="kr">한글</a>
+            </li>
+        </ul>
+    </div>
+</div> 
+        <div class="box1">
+            <div class="container_box1">
+                <div class="productCarousel">
+                    <div class="productCarousel-top">
+                        <div class="swiper-container product_top_swiper product-top">
+                            <ul class="swiper-wrapper" id="index_lunbo_top"></ul>
+                        </div>
+                    </div>
+                    <div class="productCarousel_mask"></div>
+                    <div class="productCarousel-thumbs">
+                        <div class="swiper-container product_thumbs_swiper product-thumbs">
+                            <ul class="swiper-wrapper" id="index_lunbo_icon"></ul>
+                        </div>
+                        <a class="swiper-button-prev" href="javascript:;">上一个</a>
+                        <a class="swiper-button-next" href="javascript:;">下一个</a>
+                    </div>
+                </div>
+                <div class="line"></div>
+            </div>
+        </div>
+        <!-- 新闻动态 -->
+        <div class="news_box" id="news">
+            <div class="container">
+                <div class="title1"></div>
+                <a href="" target="_blank" class="news_more"></a>
+                <!--begin-->
+                <div class="swiper-container cv_swiper">
+                    <div class="swiper-wrapper" id="cv_swiper"></div>
+                </div>
+                <ul class="cv_tab" id="cv_swiperPic"></ul>
+                <!--end-->
+            </div>
+        </div>
+        <!-- 品牌业务 -->
+        <div class="brand_box">
+            <div class="container">
+                <div class="title2"></div>
+                <!-- <a href="" target="_blank" class="brand_more"></a> -->
+                <div class="brand_list">
+                    <ul>
+                        <li class="brand1">
+                            <a href="#jump"></a>
+                        </li>
+                        <li class="brand2">
+                            <a href="https://douliu.wanmei.com/" target="_blank"></a>
+                        </li>
+                        <li class="brand3">
+                            <a href="https://games.wanmei.com/star" target="_blank"></a>
+                        </li>
+                        <li class="brand4">
+                            <a href="https://games.wanmei.com/culture/index.html" target="_blank"></a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 新游推荐 -->
+        <!-- <div class="newgame_box">
+            <div class="container">
+                <div class="title3"></div>
+                <a href="https://games.wanmei.com/newgame/index.html" target="_blank" class="change_more"></a>
+                <div class="features">
+                    <div class="features-top">
+                        <div class="swiper-container gallery-top">
+                            <ul class="swiper-wrapper">
+                                <li class="swiper-slide">
+                                    <div class="features_left">
+                                        <a href="" target="_blank"></a>
+                                        <div class="kuang"></div>
+                                        <img src="https://games.wanmei.com/images/index2103/feature-1.png" />
+                                        <div class="newgame_info">
+                                            <h3>8月27日 新笑傲江湖全新版本上线</h3>
+                                            <p>百万字原创剧情，开放式趣味玩法，感受沉浸式新武侠体验</p>
+                                        </div>
+                                    </div>
+                                    <div class="features_right">
+                                        <div class="game_icon_box">
+                                            <img src="https://games.wanmei.com/images/index2103/icon1.png" class="game_icon">
+                                            <div class="game_icon_text">
+                                                <h3>新笑傲江湖</h3>
+                                                <p>国风手游</p>
+                                            </div>
+                                        </div>
+                                        <div class="game_tab">
+                                            <span>标签</span>
+                                            <span>标签</span>
+                                            <span>标签</span>
+                                        </div>
+                                        <div class="game_info">
+                                            百万字原创剧情，开放式趣<br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> ...
+
+                                        </div>
+                                        <a href="javascript:;" class="yy_btn" data-code="39">马上关注 +</a>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide">
+                                    <div class="features_left">
+                                        <a href="" target="_blank"></a>
+                                        <div class="kuang"></div>
+                                        <img src="https://games.wanmei.com/images/index2103/feature-1.png" />
+                                        <div class="newgame_info">
+                                            <h3>8月27日 新笑傲江湖全新版本上线</h3>
+                                            <p>百万字原创剧情，开放式趣味玩法，感受沉浸式新武侠体验</p>
+                                        </div>
+                                    </div>
+                                    <div class="features_right">
+                                        <div class="game_icon_box">
+                                            <img src="https://games.wanmei.com/images/index2103/icon1.png" class="game_icon">
+                                            <div class="game_icon_text">
+                                                <h3>新笑傲江湖</h3>
+                                                <p>国风手游</p>
+                                            </div>
+                                        </div>
+                                        <div class="game_tab">
+                                            <span>标签</span>
+                                            <span>标签</span>
+                                            <span>标签</span>
+                                        </div>
+                                        <div class="game_info">
+                                            百万字原创剧情，开放式趣<br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> ...
+
+                                        </div>
+                                        <a href="javascript:;" class="yy_btn" data-code="39">马上关注 +</a>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide">
+                                    <div class="features_left">
+                                        <a href="" target="_blank"></a>
+                                        <div class="kuang"></div>
+                                        <img src="https://games.wanmei.com/images/index2103/feature-1.png" />
+                                        <div class="newgame_info">
+                                            <h3>8月27日 新笑傲江湖全新版本上线</h3>
+                                            <p>百万字原创剧情，开放式趣味玩法，感受沉浸式新武侠体验</p>
+                                        </div>
+                                    </div>
+                                    <div class="features_right">
+                                        <div class="game_icon_box">
+                                            <img src="https://games.wanmei.com/images/index2103/icon1.png" class="game_icon">
+                                            <div class="game_icon_text">
+                                                <h3>新笑傲江湖</h3>
+                                                <p>国风手游</p>
+                                            </div>
+                                        </div>
+                                        <div class="game_tab">
+                                            <span>标签</span>
+                                            <span>标签</span>
+                                            <span>标签</span>
+                                        </div>
+                                        <div class="game_info">
+                                            百万字原创剧情，开放式趣<br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> ...
+
+                                        </div>
+                                        <a href="javascript:;" class="yy_btn" data-code="39">马上关注 +</a>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide">
+                                    <div class="features_left">
+                                        <a href="" target="_blank"></a>
+                                        <div class="kuang"></div>
+                                        <img src="https://games.wanmei.com/images/index2103/feature-1.png" />
+                                        <div class="newgame_info">
+                                            <h3>8月27日 新笑傲江湖全新版本上线</h3>
+                                            <p>百万字原创剧情，开放式趣味玩法，感受沉浸式新武侠体验</p>
+                                        </div>
+                                    </div>
+                                    <div class="features_right">
+                                        <div class="game_icon_box">
+                                            <img src="https://games.wanmei.com/images/index2103/icon1.png" class="game_icon">
+                                            <div class="game_icon_text">
+                                                <h3>新笑傲江湖</h3>
+                                                <p>国风手游</p>
+                                            </div>
+                                        </div>
+                                        <div class="game_tab">
+                                            <span>标签</span>
+                                            <span>标签</span>
+                                            <span>标签</span>
+                                        </div>
+                                        <div class="game_info">
+                                            百万字原创剧情，开放式趣<br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> ...
+
+                                        </div>
+                                        <a href="javascript:;" class="yy_btn" data-code="39">马上关注 +</a>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide">
+                                    <div class="features_left">
+                                        <a href="" target="_blank"></a>
+                                        <div class="kuang"></div>
+                                        <img src="https://games.wanmei.com/images/index2103/feature-1.png" />
+                                        <div class="newgame_info">
+                                            <h3>8月27日 新笑傲江湖全新版本上线</h3>
+                                            <p>百万字原创剧情，开放式趣味玩法，感受沉浸式新武侠体验</p>
+                                        </div>
+                                    </div>
+                                    <div class="features_right">
+                                        <div class="game_icon_box">
+                                            <img src="https://games.wanmei.com/images/index2103/icon1.png" class="game_icon">
+                                            <div class="game_icon_text">
+                                                <h3>新笑傲江湖</h3>
+                                                <p>国风手游</p>
+                                            </div>
+                                        </div>
+                                        <div class="game_tab">
+                                            <span>标签</span>
+                                            <span>标签</span>
+                                            <span>标签</span>
+                                        </div>
+                                        <div class="game_info">
+                                            百万字原创剧情，开放式趣<br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> ...
+
+                                        </div>
+                                        <a href="javascript:;" class="yy_btn" data-code="39">马上关注 +</a>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide">
+                                    <div class="features_left">
+                                        <a href="" target="_blank"></a>
+                                        <div class="kuang"></div>
+                                        <img src="https://games.wanmei.com/images/index2103/feature-1.png" />
+                                        <div class="newgame_info">
+                                            <h3>8月27日 新笑傲江湖全新版本上线</h3>
+                                            <p>百万字原创剧情，开放式趣味玩法，感受沉浸式新武侠体验</p>
+                                        </div>
+                                    </div>
+                                    <div class="features_right">
+                                        <div class="game_icon_box">
+                                            <img src="https://games.wanmei.com/images/index2103/icon1.png" class="game_icon">
+                                            <div class="game_icon_text">
+                                                <h3>新笑傲江湖</h3>
+                                                <p>国风手游</p>
+                                            </div>
+                                        </div>
+                                        <div class="game_tab">
+                                            <span>标签</span>
+                                            <span>标签</span>
+                                            <span>标签</span>
+                                        </div>
+                                        <div class="game_info">
+                                            百万字原创剧情，开放式趣<br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> 味玩法，感受沉浸式新武侠体验百万字原创剧情，开放式趣
+                                            <br/> ...
+
+                                        </div>
+                                        <a href="javascript:;" class="yy_btn" data-code="39">马上关注 +</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="features-thumbs">
+                        <div class="swiper-container gallery-thumbs">
+                            <ul class="swiper-wrapper">
+                                <li class="swiper-slide">
+                                    <a href="javascript:;" title=""><img src="https://games.wanmei.com/images/index2103/feature-1.png" alt=""></a>
+                                </li>
+                                <li class="swiper-slide">
+                                    <a href="javascript:;" title=""><img src="https://games.wanmei.com/images/index2103/feature-1.png" alt=""></a>
+                                </li>
+                                <li class="swiper-slide">
+                                    <a href="javascript:;" title=""><img src="https://games.wanmei.com/images/index2103/feature-1.png" alt=""></a>
+                                </li>
+                                <li class="swiper-slide">
+                                    <a href="javascript:;" title=""><img src="https://games.wanmei.com/images/index2103/feature-1.png" alt=""></a>
+                                </li>
+                                <li class="swiper-slide">
+                                    <a href="javascript:;" title=""><img src="https://games.wanmei.com/images/index2103/feature-1.png" alt=""></a>
+                                </li>
+                                <li class="swiper-slide">
+                                    <a href="javascript:;" title=""><img src="https://games.wanmei.com/images/index2103/feature-1.png" alt=""></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="swiper-button-prev" href="javascript:;">上一个</a>
+                        <a class="swiper-button-next" href="javascript:;">下一个</a>
+                    </div>
+                </div>
+            </div>
+
+        </div> -->
+        <!-- 热门游戏 -->
+        <div class="hot_games">
+            <div class="container">
+                <div class="title4"></div>
+                
+                <ul class="hot_games_list"></ul>
+            </div>
+        </div>
+        <!-- 底部游戏列表 -->
+        <div class="bottom_box" id="jump">
+            <div class="bottom_all_wrap">
+                <div class="col_game col_2">
+                    <h3 class="game_type">客户端游戏</h3>
+                    <div class="game_list_tow">
+                        <ul class="insertClient"></ul>
+                    </div>
+                </div>
+                <div class="col_game col_3">
+                    <h3 class="game_type">手机游戏</h3>
+                    <div class="game_list_tow">
+                        <ul class="insertMobiel"></ul>
+                    </div>
+                </div>
+                <div class="col_game col_5">
+                    <h3 class="game_type">游戏平台</h3>
+                    <div class="game_list_one">
+                        <ul class="insertOther"></ul>
+                    </div>
+                    <h3 class="game_type">网页游戏</h3>
+                    <div class="game_list_one">
+                        <ul class="insertWebgame"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 官方社群 -->
+        <div class="offical_box">
+            <div class="container">
+                <div class="title5"></div>
+                <ul class="offical_list">
+                    <li>
+                        <img src="./games.wanmei.com/images/index2103/social-weibo.png" class="wb_icon">
+                        <p>官方微博</p>
+                    </li>
+                    <li>
+                        <img src="./games.wanmei.com/images/index2103/social-wechat.png" class="wx_icon">
+                        <p>官方微信</p>
+                    </li>
+                    <li>
+                        <img src="./games.wanmei.com/images/index2103/social-douliu.png" class="dl_icon">
+                        <p>完美游戏社区</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--pop_video-->
+    <div class="pop_fixed" id="pop_video">
+        <div class="pop_video_cont">
+            <span class="close_video"></span>
+            <video id="pop_v" src="" preload="" controls="" controlslist="nodownload" ref="video" oncontextmenu="return false"></video>
+        </div>
+    </div>
+    <!--foot-->
+    <div class="foot_box">
+	<div class="foot_wrap">
+		<a href="https://games.wanmei.com"><img class="bot_logo" src="./games.wanmei.com/images/index2103/nav-logo-footer.png"></a>
+		<div class="bot_right">
+			<ul class="bot_link">
+				<li class="p_l0"><a href="https://www.wanmei.com/zh/intro.html" target="_blank">公司介绍</a></li>
+				<li><a href="https://jobs.games.wanmei.com" target="_blank">招聘信息</a></li>
+				<li><a href="https://www.wanmei.com/zh/contact_us.html" target="_blank">联系我们</a></li>
+				<li><a href="http://static.wanmei.com/passport/agreement/003.html" target="_blank">用户协议</a></li>
+				<li><a href="http://static.wanmei.com/passport/agreement/005.html" target="_blank">个人信息保护政策</a></li>
+				<li><a href="http://static.wanmei.com/passport/agreement/children.html" target="_blank">儿童个人信息保护指引</a></li>
+				<li><a href="http://static.wanmei.com/passport/agreement/cookie-policy.html" target="_blank">Cookie政策</a></li><li><a href="https://cs.wanmei.com/" target="_blank">纠纷处理</a></li>
+				<li class="noline"><a href="https://www.wanmei.com/jiazhang/" target="_blank">家长监护</a></li>
+			</ul>
+			<p class="foot_copy">《网络文化经营许可证》编号：<a href="https://www.wanmei.com/permit/culture.html" target="_blank" style="color:#888">京网文[2024]0095-007号</a>  网络视听许可证编号：<a href="https://www.wanmei.com/permit/audio.htm" target="_blank" style="color:#888">0110587</a><br>
+京ICP备<a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" style="color:#888">15025398号-6</a> 京公网安备<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502033859" target="_blank" style="color:#888">11010502033859号</a> <br>
+© 完美世界 版权所有　Perfect World. All Rights Reserved.</p>
+		</div>
+	</div>
+</div>
+    <script type="text/javascript" src="./static.games.wanmei.com/public/js/jq_183.js"></script>
+    <script type="text/javascript" src="./static.games.wanmei.com/public/commonData/gamesData/gameSwiper/games-gameSwiper.js"></script>
+    <script type="text/javascript" src="./static.games.wanmei.com/public/js/top/loadGameData.js"></script>
+    <!-- stat.js removed (Stage 1 mirror) -->
+    <script type="text/javascript" src="./static.games.wanmei.com/public/js/jquery.boxy.js"></script>
+    <script type="text/javascript" src="./static.games.wanmei.com/public/js/swiper-4.5.0.min.js"></script>
+    <script type="text/javascript" src="./static.games.wanmei.com/public/js/swiper.animate1.0.2.min.js"></script>
+    <script type="text/javascript" src="./static.games.wanmei.com/games/xxa/jquery.cookie.js"></script>
+    <script type="text/javascript" src="./games.wanmei.com/js/yy2103.js"></script>
+    <script type="text/javascript" src="./games.wanmei.com/pc_gamecenter2104.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            function getGamelistfn(obj,id){
+                var str="";
+                $.each(obj,function(key,value){
+                    var isNew = value.new ? 'new' : '';
+                    var isHot = value.hot ? 'hot' : '';
+                    var className = isNew + ' ' + isHot;
+                    str+='<li><a href="'+value.url+'" class="'+className+'" target="_blank">'+value.name+'</a></li>'
+                });
+                $("."+id).html(str);
+            };
+            getGamelistfn(publicloadGameData.client,"insertClient");
+            getGamelistfn(publicloadGameData.mobiel,"insertMobiel");
+            getGamelistfn(publicloadGameData.webgame,"insertWebgame");
+            getGamelistfn(publicloadGameData.other,"insertOther");
+            $(".top_logo").attr("src","./games.wanmei.com/images/index2205/main/nav-logo-main.png");
+
+            $(".fbh_float span").on("click", function() {
+               $(".fbh_float").hide();
+            })
+            $('.games_btn').click(function() {
+                var flag = $(this).attr('flag');
+                if (flag == 'false') {
+                    $('.game_slide').slideDown(function() {
+                        $('.games_btn').attr('flag', 'true');
+                    });
+                } else if (flag == 'true') {
+                    $('.game_slide').slideUp(function() {
+                        $('.games_btn').attr('flag', 'false');
+                    });
+                }
+            });
+            $(document).click(function() {
+                var flag = $('.games_btn').attr('flag');
+                if (flag == 'true') {
+                    $('.game_slide').slideUp(function() {
+                        $('.games_btn').attr('flag', 'false');
+                    });
+                }
+            });
+
+            $('.helps_btn').click(function() {
+                var flag = $(this).attr('flag');
+                if (flag == 'false') {
+                    $('.helps_slide').slideDown(function() {
+                        $('.helps_btn').attr('flag', 'true');
+                    });
+                } else if (flag == 'true') {
+                    $('.helps_slide').slideUp(function() {
+                        $('.helps_btn').attr('flag', 'false');
+                    });
+                }
+            });
+            $(document).click(function() {
+                var flag = $('.helps_btn').attr('flag');
+                if (flag == 'true') {
+                    $('.helps_slide').slideUp(function() {
+                        $('.helps_btn').attr('flag', 'false');
+                    });
+                }
+            });
+
+            $('.contact_btn').click(function() {
+                var flag = $(this).attr('flag');
+                console.log(flag);
+                if (flag == 'false') {
+                    $('.contact_slide').slideDown(function() {
+                        $('.contact_btn').attr('flag', 'true');
+                    });
+                } else if (flag == 'true') {
+                    $('.contact_slide').slideUp(function() {
+                        $('.contact_btn').attr('flag', 'false');
+                    });
+                }
+            });
+            $(document).click(function() {
+                var flag = $('.contact_btn').attr('flag');
+                if (flag == 'true') {
+                    $('.contact_slide').slideUp(function() {
+                        $('.contact_btn').attr('flag', 'false');
+                    });
+                }
+            });
+
+            var cvNewsStr="";
+            $.each(games_data_data.AD1,function(key,value){
+                cvNewsStr+='<div class="swiper-slide">'
+                cvNewsStr+='<img src="'+value.viewpic+'" class="games_icon">'
+                cvNewsStr+='<div class="des_box">'
+                cvNewsStr+='    <p class="tit">'+value.title+'</p>'
+                cvNewsStr+='    <p class="des">'+value.viceTitle+'</p>'
+                cvNewsStr+='</div></div>'
+            });
+            $("#cv_swiper").html(cvNewsStr);
+            var cv_swiperPic="";
+            $.each(games_data_data.AD1,function(key,value){
+                cv_swiperPic+='<li class="cv_tab1"><a href="'+value.link+'" target="_blank"><img src="'+value.bigpic+'"></a></li>'
+            });
+            $("#cv_swiperPic").html(cv_swiperPic);
+            
+            var indexlunbo = "";
+            var indexlunboIcon = "";
+            $.each(games_data_data.AD3,function(key,value){
+                indexlunbo+='<li class="swiper-slide">';
+                indexlunbo+='    <div class="productCarousel_poster">';
+                indexlunbo+='        <img src="'+value.bigpic+'" />';
+                indexlunbo+='        <div class="product_info1 product_info2">';
+                indexlunbo+='            <div class="product_icon"><img class="item_icon" style="width:214px;" src="'+value.viewpic+'"></div>';
+                indexlunbo+='            <div class="product_p"><p>'+value.title+'</p><span>'+value.viceTitle+'</span></div>';
+                indexlunbo+='            <div class="product_line"></div>';
+                indexlunbo+='            <div class="product_s">'+value.mlink+'</div>';
+                indexlunbo+='            <a href="'+value.link+'" target="_blank" class="look_product_info_btn"></a>';
+                indexlunbo+='</div></div></li>';
+                indexlunboIcon+='<li class="swiper-slide"><a title="'+value.title+'" style="background-image:url('+value.viewpic+');"><span></span></a></li>';
+            });
+            $("#index_lunbo_top").html(indexlunbo);
+            $("#index_lunbo_icon").html(indexlunboIcon);
+            // 新闻动态
+            var cvSwiper = new Swiper('.cv_swiper', {
+                direction: 'vertical',
+                loop: true,
+                autoplay: {
+                    disableOnInteraction: false,
+                    delay: 3000,
+                },
+                slidesPerView: 4,
+                spaceBetween: 9,
+                slideToClickedSlide: true,
+                on: {
+                    touchStart: function(swiper, event) {
+                        //console.log(this.realIndex)
+                        $('.cv_tab li').removeClass('on').eq(this.realIndex).addClass('on');
+                    },
+                    slideChangeTransitionStart: function() {
+                        $('.cv_tab li').removeClass('on').eq(this.realIndex).addClass('on');
+                    },
+                }
+            });
+
+            // 跳转游戏中心
+            $(".brand1").on("click", function() {
+                $('html,body').animate({
+                    scrollTop: ($("#jump").offset().top - 200)
+                }, 500);
+            });
+
+            // 头部展示轮播
+            function productCarousels() {
+                var productThumbs = new Swiper('.product-thumbs', {
+                    spaceBetween: 0,
+                    slidesPerView: 6,
+                    freeMode: true,
+                    watchSlidesVisibility: false,
+                    watchSlidesProgress: true,
+                });
+                var productTop = new Swiper('.product-top', {
+                    loop: true,
+                    autoplay: {disableOnInteraction: false,delay: 3000,},
+                    spaceBetween: 10,
+                    effect: 'fade',
+                    navigation: {
+                        nextEl: '.productCarousel-thumbs .swiper-button-next',
+                        prevEl: '.productCarousel-thumbs .swiper-button-prev',
+                    },
+                    thumbs: {
+                        swiper: productThumbs
+                    }
+                });
+            }
+            productCarousels();
+
+            // 新游轮播2
+            function features() {
+                var galleryThumbs = new Swiper('.gallery-thumbs', {
+                    spaceBetween: 0,
+                    slidesPerView: 6,
+                    freeMode: true,
+                    watchSlidesVisibility: false,
+                    watchSlidesProgress: true,
+                });
+                var galleryTop = new Swiper('.gallery-top', {
+                    spaceBetween: 10,
+                    navigation: {
+                        nextEl: '.features-thumbs .swiper-button-next',
+                        prevEl: '.features-thumbs .swiper-button-prev',
+                    },
+                    thumbs: {
+                        swiper: galleryThumbs
+                    }
+                });
+            }
+
+
+
+            //pop_video
+            var popV = document.getElementById('pop_v');
+            var video = $('#pop_v');
+            video[0]['disablePictureInPicture'] = true;
+            $('.play_btn').click(function() {
+                var vsrc = $(this).attr('vsrc');
+                popV.src = vsrc;
+                $('#pop_video').show();
+                popV.play();
+            });
+            $('.close_video').click(function() {
+                popV.pause();
+                $('#pop_video').hide();
+            });
+            // 新游
+            var newsort = [
+               
+                '新诛仙世界',
+                '代号：MA',
+                '代号：R',
+                '天龙八部2手游',
+                '一拳超人：世界',
+                '黑猫奇闻社',
+                '诛仙2',
+                '香蜜沉沉烬如霜',
+                'CODE NAME:X',
+                'Project：棱镜',
+                '完美新世界',
+                'Perfect New World',
+                '梦幻新诛仙',
+                '梦间集2',
+                '仙剑奇侠传',
+                '战神遗迹'
+            ]
+            var newGameList = []
+            for (var key in gameCenterData['newGame']) {
+                newGameList = newGameList.concat(gameCenterData['newGame'][key])
+            }
+            var newList = []
+            for (var i = 0; i < newsort.length; i++) {
+                for (var j = 0; j < newGameList.length; j++) {
+                    if (newGameList[j].name == newsort[i]) {
+                        newList.push(newGameList[j])
+                    }
+                }
+            }
+            randomList(newList, 0, null, $('.features-top ul'), 0);
+            randomList(newList, 1, null, $('.features-thumbs ul'), 0);
+            features();
+            //热门游戏
+            var hotGameList = []
+            for (var key in gameCenterData) {
+                for (var key1 in gameCenterData[key]) {
+                    hotGameList = hotGameList.concat(gameCenterData[key][key1])
+                }
+            }
+            hotGameList = hotGameList.filter(function(elem) {
+                return elem.isView == true
+            })
+            randomList(hotGameList, hotGameList.length, $('.hot_games .change_btn'), $('.hot_games_list'), 0);
+
+            function randomList(jsonList, size, elemBtn, ulBox, isRandom) {
+                // 游戏预约列表
+                var gameLen = jsonList.length;
+                // 生成随机顺序
+                var arrRandom = [];
+                var arr = [];
+                for (var i = 0; i < gameLen; i++) {
+                    arrRandom[i] = i;
+                }
+                if (isRandom) {
+                    arrRandom.sort(function() {
+                        return 0.5 - Math.random()
+                    })
+                }
+
+                if (size == 6) { // 分页随机
+                    var pageSize = size;
+                    var pageNum = 0;
+                    // 初始化加载一次
+                    showGame();
+                    // 换一批
+                    elemBtn.on('click', function() {
+                        var num = gameLen % pageSize == 0 ? parseInt(gameLen / pageSize) : parseInt(gameLen / pageSize) + 1
+                        if (pageNum == num) {
+                            pageNum = 0
+                            arrRandom.sort(function() {
+                                return 0.5 - Math.random()
+                            })
+                        }
+                        showGame();
+                    });
+                    // 分页显示 
+                    function showGame() {
+                        var start = pageNum * pageSize;
+                        var end = (pageNum + 1) * pageSize;
+                        var arr = arrRandom.slice(start, end);
+                        renderGame(arr);
+                        pageNum++;
+                    }
+                } else { // 不分页 加载全部
+                    renderGame(arrRandom, size);
+                }
+
+                // 渲染game
+                function renderGame(data, size) {
+                    var ul = ulBox;
+                    ul.html("");
+
+                    for (var i = 0; i < data.length; i++) {
+                        var game = jsonList[data[i]];
+                        var newGameA = ''
+                        if (game.id == '202150') {
+                            newGameA = '<a href="' + game.href + '" class="link" data-code="' + game.id + '" target="_blank">马上关注 +</a>'
+                        }else if(game.id == '43' || game.id == '20215'){
+                            newGameA = '<a href="javascript:;" class="game_close">敬请期待</a>'
+                        } else {
+                            newGameA = '<a href="javascript:;" class="yy_btn" data-code="' + game.id + '">马上关注 +</a>'
+                        }
+
+                        var iconElem = ''
+                        var iconW = ''
+                        if (game.icon == '') {
+                            iconElem = ''
+                            iconW = '252px'
+                        } else {
+                            iconElem = '<img src="' + game.icon + '" class="game_icon">'
+                            iconW = '172px'
+                        }
+
+                        var li = '<li class="swiper-slide">' +
+                            '<div class="features_left">' +
+                            '<a href="" target="_blank"></a>' +
+                            '<div class="kuang"></div>' +
+                            '<img src="' + game.faceUrl + '" style="width:100%;height:100%;"/>' +
+                            '<div class="newgame_info">' +
+                            '<h3>8月27日 新笑傲江湖全新版本上线</h3>' +
+                            '<p>百万字原创剧情，开放式趣味玩法，感受沉浸式新武侠体验</p>' +
+                            '</div>' +
+                            '</div>' +
+                            '<div class="features_right">' +
+                            '<div class="game_icon_box">' +
+                            iconElem +
+                            '<div class="game_icon_text" style="width:' + iconW + ' ">' +
+                            '<h3>' + game.name + '</h3>' +
+                            '<p>' + game.desc + '</p>' +
+                            '</div>' +
+                            '</div>' +
+                            '<div class="game_info">' + game.intro + '</div>' +
+                            newGameA +
+                            '</div>' +
+                            '</li>';
+                        var liMin = '<li class="swiper-slide">' +
+                            '<a href="javascript:;" title=""><img src="' + game.src[0] + '" alt=""></a>' +
+                            '</li>'
+                        var hotLi = '<li>' +
+                            '<div class="hot_img">' +
+                            '<a href="' + game.linkUrl + '" target="_blank"><img src="' + game.faceUrl + '"></a>' +
+                            '</div>' +
+                            '<div class="hot_info">' +
+                            '<img src="' + game.icon + '">' +
+                            '<div class="hot_txt">' +
+                            '<p class="tit">' + game.name + '</p>' +
+                            '<p class="des">' + game.desc + '</p>' +
+                            '</div>' +
+                            '</div>' +
+                            '</li>';
+                        if (size == 0) {
+                            ul.append(li)
+                        } else if (size == 1) {
+                            ul.append(liMin)
+                        } else {
+                            ul.append(hotLi)
+                        }
+
+                    }
+                }
+            }
+        })
+    </script>
+
+<script>
+/* ===========================================================
+   responsive-fix.js — destroy upstream Swiper instances on
+   .gallery-top so layout falls back to plain DOM where the
+   responsive CSS overrides take full effect.
+   =========================================================== */
+(function () {
+  function killSwiper(selector) {
+    document.querySelectorAll(selector).forEach(function (el) {
+      try {
+        if (el.swiper && typeof el.swiper.destroy === 'function') {
+          el.swiper.destroy(true, true);
+        }
+      } catch (e) {}
+      // Strip any inline styles Swiper imperatively set
+      el.removeAttribute('style');
+      el.querySelectorAll('.swiper-wrapper, .swiper-slide').forEach(function (n) {
+        n.removeAttribute('style');
+      });
+    });
+  }
+  function nuke() {
+    killSwiper('.gallery-top');
+    killSwiper('.gallery-thumbs');
+  }
+  // Kill after upstream JS init (it runs at DOMContentLoaded inline)
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(nuke, 200);
+  } else {
+    window.addEventListener('load', function () { setTimeout(nuke, 200); });
+  }
+  // Re-strip any styles Swiper might re-apply on window resize
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(nuke, 100);
+  });
+})();
+</script>
+
+</body></html>

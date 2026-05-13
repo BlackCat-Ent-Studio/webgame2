@@ -1,0 +1,467 @@
+/* =====================================================================
+   responsive-overlay.css — Wanmei Vietnam (surgical responsive overlay)
+
+   Surgically overrides every fixed-pixel container that the upstream
+   CSS hardcoded to 1920px / 1200px / etc, replacing them with fluid
+   width + max-width so they scale to the viewport.
+
+   The HTML is untouched. Images, sections, JS, and visual feel of
+   the original Wanmei homepage are preserved.
+
+   Loaded last, after all upstream CSS files.
+   ===================================================================== */
+
+/* ---------- 0. Tokens ---------- */
+:root {
+  --r-pad-x: clamp(8px, 2.5vw, 32px);
+  --r-gap:   clamp(8px, 1.4vw, 20px);
+}
+
+/* ---------- 1. Viewport hygiene ---------- */
+html, body {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  min-width: 0 !important;
+  margin: 0;
+  padding: 0;
+}
+img, video, picture, canvas, iframe {
+  max-width: 100%;
+  height: auto;
+}
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ---------- 2. Override the 1920px-wide sections ---------- */
+.container_box1,
+.productCarousel,
+.productCarousel_mask,
+.productCarousel_poster,
+.productCarousel-top,
+.top_box,
+.video_box,
+.video_mask {
+  width: 100% !important;
+  max-width: 100vw !important;
+  min-width: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.foot_box {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* ---------- 3. Override the ~1200px content wrappers ---------- */
+.container,
+.bottom_all_wrap,
+.foot_wrap,
+.games_list,
+.hot_box,
+.hot_games_list,
+.newgame_list,
+.newgame_info,
+.offical_list,
+.top_box_wrap,
+.top_nav_ul,
+.features,
+.features-thumbs,
+.features-top {
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: var(--r-pad-x) !important;
+  padding-right: var(--r-pad-x) !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* ---------- 4. Swiper slides — let Swiper compute width dynamically ---------- */
+.productCarousel-top .swiper-slide,
+.productCarousel-top .swiper-wrapper,
+.product_top_swiper .swiper-slide,
+.product_top_swiper .swiper-wrapper {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+/* Hero swiper images cover at any aspect */
+.productCarousel-top .swiper-slide img,
+.product_top_swiper .swiper-slide img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+/* Make hero have a fluid aspect ratio so its height is proportional */
+.productCarousel-top,
+.product_top_swiper {
+  aspect-ratio: 16 / 7 !important;
+  min-height: clamp(220px, 38vw, 540px) !important;
+  height: auto !important;
+}
+/* Thumbnail swiper — slides become a sensible fluid size */
+.productCarousel-thumbs .swiper-slide,
+.product_thumbs_swiper .swiper-slide {
+  width: clamp(90px, 13vw, 180px) !important;
+  height: auto !important;
+}
+/* ---------- 4b. Brand-business section (品牌业务) — high-specificity overrides ---------- */
+/* Upstream uses 3-class selectors and absolute-positioned inner content with
+   fixed pixel widths. Beat with 3+ class selectors prefixed by .bg (page root). */
+
+.bg .features,
+.bg .features-top,
+.bg .features-thumbs,
+.bg .brand_box {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+}
+
+/* Outer Swiper container: visible overflow so tiles don't clip */
+.bg .features .features-top,
+.bg .features .features-top .swiper-container,
+.bg .features .features-top .gallery-top {
+  overflow: visible !important;
+  height: auto !important;
+}
+
+/* Wrapper: convert from Swiper's flex row → wrapping flex column */
+.bg .features .features-top .swiper-wrapper,
+.bg .features .features-top ul.swiper-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+  height: auto !important;
+  transform: none !important;
+  gap: var(--r-gap) !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Slides: full width, height auto. Defeats `.features .features-top .swiper-slide { width:1126px; height:468px }` */
+.bg .features .features-top .swiper-slide,
+.bg .features .features-top ul.swiper-wrapper > li.swiper-slide {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  flex: 0 0 auto !important;
+  overflow: visible !important;
+  position: relative !important;
+}
+
+/* INNER content of each slide:
+   - .features_left was 818px float:left → make 100%, float none
+   - .features_right was 266px float:right → make 100%, float none, stack below
+   - .swiper-slide > a was 1074px absolute → make static, full width */
+.bg .features .features-top .features_left,
+.bg .features .features-top .features_right {
+  width: 100% !important;
+  height: auto !important;
+  float: none !important;
+  padding: 0 !important;
+  background-image: none !important;   /* upstream .features_right has hardcoded BG image at fixed pos */
+}
+.bg .features .features-top .swiper-slide > a {
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}
+.bg .features .features-top .swiper-slide img {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  display: block !important;
+}
+
+/* Thumbnail strip: keep horizontal but allow native scroll if it overflows */
+.bg .features .features-thumbs,
+.bg .features .features-thumbs .swiper-container,
+.bg .features .features-thumbs .gallery-thumbs {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+.bg .features .features-thumbs .swiper-wrapper,
+.bg .features .features-thumbs ul.swiper-wrapper {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  width: max-content !important;
+  min-width: 100% !important;
+  height: auto !important;
+  transform: none !important;
+  gap: 6px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
+}
+.bg .features .features-thumbs .swiper-slide,
+.bg .features .features-thumbs ul.swiper-wrapper > li.swiper-slide {
+  width: clamp(120px, 16vw, 180px) !important;
+  height: auto !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+}
+.bg .features .features-thumbs .swiper-slide a {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16/9 !important;
+}
+
+/* Swiper navigation arrows — hide everywhere inside .features */
+.bg .features .swiper-button-prev,
+.bg .features .swiper-button-next {
+  display: none !important;
+}
+
+/* ---------- 5. Top nav: fluid + collapsible ---------- */
+.top_box {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: var(--r-gap) !important;
+  padding: 12px var(--r-pad-x) !important;
+  position: relative !important;
+}
+.top_box_wrap {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: var(--r-gap) !important;
+  width: 100% !important;
+}
+.top_nav_ul {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: clamp(4px, 1vw, 16px) !important;
+  list-style: none !important;
+  padding: 0 var(--r-pad-x) !important;
+  margin: 0 auto !important;
+  justify-content: center !important;
+}
+.top_nav_ul > li {
+  flex: 0 1 auto !important;
+}
+.top_nav_ul a {
+  display: inline-block !important;
+  padding: 8px 12px !important;
+  white-space: nowrap !important;
+}
+
+/* ---------- 6. Game lists — fluidize content WITHOUT changing display ---------- */
+/* IMPORTANT: do NOT override `display` on .games_list / .game_slide.
+   Upstream uses these as a hover-triggered dropdown menu —
+   they're set to display:none by default and shown on hover.
+   Forcing display:flex here makes the dropdown permanently open
+   and cover the page. We only fluidize the INNER layout. */
+
+/* When the dropdown IS shown by upstream, make its inner layout fluid */
+.bottom_all_wrap {
+  flex-wrap: wrap !important;
+  gap: var(--r-gap) !important;
+  max-width: 100vw !important;
+  box-sizing: border-box !important;
+}
+.bottom_all_wrap > * {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+/* Multi-column inside bottom_all_wrap (col_2, col_3, col_5) */
+.col_game,
+.bottom_all_wrap > div[class*="col_"] {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+.game_list_one,
+.game_list_tow {
+  flex-wrap: wrap !important;
+  gap: var(--r-gap) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+.game_list_one > *,
+.game_list_tow > * {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+/* ---------- 7. Hot games / new games / offical lists ---------- */
+.hot_games_list,
+.newgame_list,
+.offical_list {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)) !important;
+  gap: var(--r-gap) !important;
+  list-style: none !important;
+}
+.hot_games_list > li,
+.newgame_list > li,
+.offical_list > li {
+  width: auto !important;
+  max-width: 100% !important;
+}
+
+/* ---------- 8. Side floating widget (fbh_float) ---------- */
+.fbh_float {
+  display: none !important;
+}
+@media (min-width: 1280px) {
+  .fbh_float {
+    display: block !important;
+    position: fixed !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 50 !important;
+    max-width: 80px !important;
+  }
+}
+
+/* ---------- 9. Footer ---------- */
+.foot_wrap {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: clamp(12px, 2vw, 24px) !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+/* ---------- 10. Popup form (pop_fixed) ---------- */
+.pop_fixed {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  padding: var(--r-pad-x) !important;
+}
+.pop_cont_bg {
+  width: 100% !important;
+  max-width: 480px !important;
+  max-height: 90vh !important;
+  margin: 0 auto !important;
+  overflow-y: auto !important;
+}
+.pop_cont,
+.sub_form_box,
+.sub_succ_box,
+.sub_succing_box {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  padding: clamp(16px, 3vw, 32px) !important;
+}
+.sub_form_box img,
+.sub_succ_box img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+.sub_form_box .phone {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* ---------- 11. Inline-style 1920/1200 escapes ---------- */
+[style*="width: 1920px"], [style*="width:1920px"],
+[style*="width: 1200px"], [style*="width:1200px"],
+[style*="min-width: 1920px"], [style*="min-width:1920px"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* ---------- 12. Long Chinese strings should wrap ---------- */
+body, body * {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- 13. Tablet (≤ 1023px) ---------- */
+@media (max-width: 1023px) {
+  .top_nav_ul {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+  .top_nav_ul a {
+    padding: 6px 10px !important;
+    font-size: 14px !important;
+  }
+  /* Hot/new/official grids tighter */
+  .hot_games_list,
+  .newgame_list,
+  .offical_list {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)) !important;
+  }
+}
+
+/* ---------- 14. Phone (≤ 767px) ---------- */
+@media (max-width: 767px) {
+  /* Aggressively stack flex containers */
+  .bottom_all_wrap,
+  .top_box_wrap {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .col_game,
+  .bottom_all_wrap > div[class*="col_"] {
+    flex: 1 1 100% !important;
+    min-width: 100% !important;
+  }
+  /* Hide decorative absolute-positioned elements that overflow */
+  .productCarousel_mask {
+    display: none !important;
+  }
+  /* Hide swiper navigation arrows on phones */
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
+  }
+  /* Smaller thumbnail swiper height */
+  .productCarousel-thumbs,
+  .product_thumbs_swiper {
+    height: auto !important;
+  }
+  /* Hot/new/official grids 2 cols max */
+  .hot_games_list,
+  .newgame_list,
+  .offical_list {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  /* Footer simplifies */
+  .foot_wrap {
+    flex-direction: column !important;
+  }
+}
+
+/* ---------- 15. Small phone (≤ 479px) ---------- */
+@media (max-width: 479px) {
+  .hot_games_list,
+  .newgame_list,
+  .offical_list {
+    grid-template-columns: 1fr !important;
+  }
+  .productCarousel-thumbs .swiper-slide,
+  .product_thumbs_swiper .swiper-slide {
+    width: clamp(70px, 22vw, 110px) !important;
+  }
+}
+
+/* ---------- 16. Touch tap targets ---------- */
+@media (hover: none) and (pointer: coarse) {
+  a, button {
+    min-height: 40px;
+  }
+}
